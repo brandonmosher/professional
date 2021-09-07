@@ -1,0 +1,5 @@
+../../template/resume/resume.tex ../professional.json resume.json
+--output-dirpath ../../build
+--output-filestem resume
+--include-tags
+--exclude-tags

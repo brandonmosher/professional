@@ -1,0 +1,5 @@
+../../template/coverletter/coverletter.tex ../professional.json coverletter.json
+--output-dirpath ../../build
+--output-filestem coverletter
+--include-tags
+--exclude-tags

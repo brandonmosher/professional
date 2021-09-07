@@ -1,0 +1,5 @@
+../../template/cv/cv.tex ../professional.json cv.json
+--output-dirpath ../../build
+--output-filestem cv
+--include-tags
+--exclude-tags

@@ -1,0 +1,183 @@
+{
+    "document": {
+        "firstName": "Brandon",
+        "lastName": "Mosher",
+        "header": {
+            "position": "Software Engineer",
+            "address": "Brooklyn, NY",
+            "mobile": "(111) 111-1111",
+            "email": "brandon@mosher.xyz",
+            "homepage": "brandon.mosher.xyz",
+            "github": "brandonmosher",
+            "linkedin": "brandondmosher"
+        },
+        "coverletter": {
+            "opening": {
+                "openingPhrase": "Dear Sir or Madam,"
+            },
+            "body": [
+                {
+                    "title": "About Me",
+                    "paragraphs": [
+                        "I am a software engineer with over 900 years of experience."
+                    ]
+                }
+            ],
+            "closing": {
+                "closingPhrase": "Sincerely,"
+            },
+            "enclosures": [
+                {
+                    "type": "Attached",
+                    "name": "Resume"
+                }
+            ]
+        },
+        "cv": {
+            "summary": {
+                "title": "Summary",
+                "cvparagraph": "When 900 years old you are, understand computers you will not."
+            },
+            "experience": {
+                "title": "Work Experience",
+                "cventries": [
+                    {
+                        "jobTitle": "Software Engineer",
+                        "organization": "Goober",
+                        "location": "San Fransisco, CA",
+                        "startDate": "2020",
+                        "endDate": "2021",
+                        "cvitems": [
+                            "Developed a nifty REST API",
+                            "Wrote bug-squashing unit tests"
+                        ]
+                    },
+                    {
+                        "jobTitle": "Software Engineer",
+                        "organization": "Frapple",
+                        "location": "San Jose, CA",
+                        "startDate": "2019",
+                        "endDate": "2020",
+                        "cvitems": [
+                            "Developed iOS and Android apps"
+                        ]
+                    }
+                ]
+            },
+            "education": {
+                "title": "Education",
+                "cventries": [
+                    {
+                        "degrees": [
+                            "Masters of Engineering in Computer Science"
+                        ],
+                        "institution": "Space Academy",
+                        "location": "Space",
+                        "startDate": "2020",
+                        "endDate": "2021",
+                        "cvitems": [
+                            "Achieved lift off",
+                            "Didn't get sucked into the vacuum of space"
+                        ]
+                    },
+                    {
+                        "degrees": [
+                            "Bachelor of Science in Engineering, Computer Science"
+                        ],
+                        "institution": "University of Michigan",
+                        "location": "Ann Arbor, MI",
+                        "startDate": "2016",
+                        "endDate": "2020",
+                        "cvitems": [
+                            "Relevant Coursework: Operating Systems, Computer Security, Algorithms and Data Structures"
+                        ]
+                    }
+                ]
+            },
+            "skillsets": {
+                "title": "Skills",
+                "cventries": [
+                    {
+                        "category": "Programming",
+                        "skillset": "C, C++, Python, Javascript ES6+, VBA, ARM Asembly, LaTex, SQL, Object-oriented design"
+                    },
+                    {
+                        "category": "DevOps",
+                        "skillset": "AWS, Google Cloud, Docker, Git"
+                    },
+                    {
+                        "category": "Back-end",
+                        "skillset": "REST API, node.js"
+                    },
+                    {
+                        "category": "Front-end",
+                        "skillset": "HTML5, CSS3, React, SharePoint"
+                    },
+                    {
+                        "category": "Logic Design",
+                        "skillset": "verilog, FPGAs, Synopsys VCS"
+                    },
+                    {
+                        "category": "Languages",
+                        "skillset": "English (native);"
+                    }
+                ]
+            },
+            "skills": {
+                "title": "Skills",
+                "cventries": [
+                    {
+                        "name": "HTML5, CSS3",
+                        "proficiencyPercentage": "80"
+                    },
+                    {
+                        "name": "Javascript ES6+",
+                        "proficiencyPercentage": "80"
+                    },
+                    {
+                        "name": "Python",
+                        "proficiencyPercentage": "80"
+                    },
+                    {
+                        "name": "C, C++",
+                        "proficiencyPercentage": "80"
+                    },
+                    {
+                        "name": "Linux",
+                        "proficiencyPercentage": "70"
+                    }
+                ]
+            },
+            "projects": {
+                "title": "Projects",
+                "cventries": [
+                    {
+                        "name": "Personal Website",
+                        "url": "https://brandon.mosher.xyz",
+                        "organization": "",
+                        "date": "2021",
+                        "cvparagraph": "It's a website."
+                    },
+                    {
+                        "name": "Resume",
+                        "url": "https://github.com/brandonmosher/resume",
+                        "organization": "",
+                        "date": "2021",
+                        "cvparagraph": "It's a resume.",
+                        "tags": [
+                            "cv"
+                        ]
+                    }
+                ]
+            },
+            "hobbies": {
+                "title": "Hobbies",
+                "cventries": [
+                    {
+                        "title": "Intermolecular bond weaving."
+                    }
+                ]
+            }
+        }
+    }
+}

@@ -1,0 +1,20 @@
+Pending
+- Write template/% rule in Makefile to allow automated builds using LaTex Workshop
+- Report warnings when keys exist in JSON that have no matching environment or macro in the tex template and vice-versa
+ - Consider adding --tex-template-dirpath and --data-dirpath command-line options to limit the need for relative/absolute paths in .version files.
+- Consider implementing more fine-grained control over JSON merge for arrays including the ability to merge objects in an with matching "id", and to specify "order".
+- make "value" property work transparently (i.e. empty \p{} tag will work) for objects in lists. Or just use "value: everywhere"
+- Removed unused properties from JSON in build
+
+Complete
+- rename degrees to separatedItems
+- update header social entries to use separated items environment
+- update README
+- Consider reverting to previous filtering mechanism to create different document versions using tags. Allow tags to be specified via command line.
+- update setup.cfg, .devcontainer, and Dockerfile to handle dependencies for python and json_to_text package
+- make public
+- use json data to generate vertical timeline on website
+- JSON for coverletter
+- json_to_tex
+    - command line args for template and json filenames
+    - ability to specify multiple json files to be merged allowing global defaults across multiple docs

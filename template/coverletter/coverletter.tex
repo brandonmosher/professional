@@ -1,0 +1,70 @@
+\documentclass[11pt, a4paper]{coverletter}
+\newenvironment{coverletter}{}{}
+\newenvironment{paragraphs}{}{}
+% Configure page margins with geometry
+\geometry{left=1.4cm, top=.8cm, right=1.4cm, bottom=1.8cm, footskip=.5cm}
+
+% Specify the location of the included fonts
+\fontdir[../fonts/]
+
+% Color for highlights
+\colorlet{awesome}{awesome-red}
+
+% Set false if you don't want to highlight section with awesome color
+\setbool{sectionColorHighlight}{true}
+
+% If you would like to change the social information separator from a pipe (|) to something else
+\renewcommand{\headerSocialSep}{\quad\textbar\quad}
+
+\begin{document}
+
+\name{\p{firstName}}{\p{lastName}}
+
+\begin{header}
+    \position{\p{position}}
+    \address{\p{address}}
+    \mobile{\p{mobile}}
+    \email{\p{email}}
+    \homepage{\p{homepage}}
+    \github{\p{github}}
+    \linkedin{\p{linkedin}}
+    \makeheader[C]
+\end{header}
+
+\begin{coverletter}
+
+    \begin{opening}
+        \lettertoname{\p{toName}}
+        \lettertoaddress{\p{toAddress}}
+        \letterdate{\today}
+        \lettertitle{\p{title}}
+        \letteropeningphrase{\p{openingPhrase}}
+        \makeletterstart
+    \end{opening}
+
+    \begin{body}
+        \setlength{\parindent}{0em}
+        \setlength{\parskip}{1em}
+        \lettersection{\p{title}}
+        {
+            \begin{paragraphs}
+                \p{value}\par
+            \end{paragraphs}
+        }
+    \end{body}
+
+    \begin{closing}
+        \letterclosingphrase{\p{closingPhrase}}
+        \makeletterend
+    \end{closing}
+
+    \begin{enclosures}
+        \letterenclosure{\p{type}}{\p{name}}
+    \end{enclosures}
+\end{coverletter}
+\makefooter
+    {\today}
+    {\p{firstName} \p{lastName}~~~·~~~Cover letter}
+    {\thepage}
+
+\end{document}

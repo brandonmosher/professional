@@ -1,0 +1,31 @@
+{
+    "document": {
+        "cv": {
+            "honors": {
+                "title": "Honors",
+                "international": {
+                    "title": "International",
+                    "cventries": [
+                        {
+                            "award": "International Cool Guy Award",
+                            "event": "Cool Competition",
+                            "location": "Timbuktu",
+                            "date": "2019"
+                        }
+                    ]
+                },
+                "domestic": {
+                    "title": "Domestic",
+                    "cventries": [
+                        {
+                            "award": "Domestic Cool Guy Award",
+                            "event": "Domestic Cool Competition",
+                            "location": "United States",
+                            "date": "2014"
+                        }
+                    ]
+                }
+            }
+        }
+    }
+}

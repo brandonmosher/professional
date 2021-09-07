@@ -1,0 +1,287 @@
+\documentclass[11pt, a4paper]{cv}
+\newenvironment{header}{}{\par}
+\newenvironment{experience}{}{\par}
+\newenvironment{projects}{}{\par}
+\newenvironment{education}{}{\par}
+\newenvironment{skillsets}{}{\par}
+\newenvironment{cv}{}{\par}
+\newenvironment{degrees}{\begin{separatedItems}{\headerSocialSep}}{\end{separatedItems}}
+\newcommand*{\degree}[1]{\separatedItem{#1}}
+\geometry{left=1.4cm, top=.8cm, right=1.4cm, bottom=1.8cm, footskip=.5cm}
+\fontdir[../fonts/]
+\colorlet{awesome}{awesome-red}
+\setbool{sectionColorHighlight}{true}
+\renewcommand{\headerSocialSep}{\quad\textbar\quad}
+\begin{document}
+\name{Brandon}{Mosher}
+\begin{header}
+\position{Software Engineer}
+\address{Brooklyn, NY}
+\mobile{}
+\email{brandon@mosher.xyz}
+\homepage{brandon.mosher.xyz}
+\github{brandonmosher}
+\linkedin{brandondmosher}
+\makeheader[C]
+\end{header}
+\bigskip
+\begin{cv}
+\begin{experience}
+\cvsection{Work Experience}
+\begin{cventries}
+\cventry
+{National Security Agency}
+{Non-Commissioned Officer in Charge}
+{Overseas}
+{Sep. 2019 - Sep. 2020}
+{\begin{cvitems}
+\cvitem{Led joint-military/civilian intelligence cell providing strategic reporting, threat warning, combat operation support, and crisis response.}
+\cvitem{Developed highly effective operating procedures and techniques adopted by regional and national counterparts.}
+\cvitem{Authored Python packages providing compliant automatation of mission-critical analytic workflows, increasing processing capacity 50\%.}
+\cvitem{Developed custom HTML5 front-end for SharePoint-based scheduling application, providing real-time tracking of resource allocation.}
+\cvitem{Architected software infrastructure enabling seamless collaboration between regional entities, decreasing incident response time.}
+\cvitem{Awarded Joint Service Commendation Medal.}
+\end{cvitems}}
+\cventry
+{U.S. Navy Reserves}
+{Operations Leading Chief Petty Officer}
+{United States}
+{Sep. 2017 - Sep. 2019}
+{\begin{cvitems}
+\cvitem{Managed \$100,000 training budget; coordinated travel, clearance investigation, polygraph, and facility and information systems access.}
+\cvitem{Developed SharePoint web application to coordinate regional remote distributed operations, increasing productivity 500\%.}
+\cvitem{Developed SharePoint web application to streamline personnel security document workflows, decreasing processing time 50\%.}
+\cvitem{Awarded Navy Achievement Medal.}
+\end{cvitems}}
+\cventry
+{National Security Agency}
+{Assistant Non-Commissioned Officer in Charge, Cryptologic Language Analyst}
+{United States}
+{Aug. 2011 - Aug. 2014}
+{\begin{cvitems}
+\cvitem{Qualified in Levantine, Iraqi, and Egyptian Arabic dialects at ACTFL advanced and superior levels.}
+\cvitem{Set standards for, trained, and oversaw analysts providing time-sensitive and strategic reporting to tactical and executive decision-makers.}
+\cvitem{Led transition from in-house, mission-critical geospatial analysis tool to COTS alternative, authoring Python extensions to sustain/enhance capabilities which resulted in zero downtime and 20\% reduced latency.}
+\cvitem{Rapidly prototyped over 50 Python, SharePoint, and VBA applications to automate emergent analytic and administrative mission needs.}
+\cvitem{Audited Navy warfare qualification standard, resolving over 150 errors. Organized major training events, increasing qualifications 15\%.}
+\cvitem{Awarded Joint Service Commendation medal, Flag Letter of Commendation (x3), Junior Sailor of the Quarter, and NSA Star award.}
+\end{cvitems}}
+\end{cventries}
+\end{experience}
+\begin{education}
+\cvsection{Education}
+\begin{cventries}
+\cventry
+{\begin{degrees}
+\degree{Bachelor of Science in Engineering, Computer Science}
+\degree{Bachelor of Science in Engineering, Physics}
+\end{degrees}}
+{University of Michigan}
+{Ann Arbor, MI}
+{Dec. 2020}
+{\begin{cvitems}
+\cvitem{Relevant Coursework: Operating Systems, Autonomous Robotics, Microprocessor/Logic Design, Embedded Systems, Computer Security, Algorithms, and Data Structures. Theoretical Statistics, Probability, and Linear Algebra. Electricity/Magnetism, Mechanics, Thermodynamics, and Quantum Physics.}
+\end{cvitems}}
+\cventry
+{\begin{degrees}
+\degree{Associate of Arts with Honors, Arabic-Modern Language}
+\end{degrees}}
+{Defense Language Institute}
+{Monterey, CA}
+{Jun. 2010}
+{\begin{cvitems}
+\cvitem{Achieved maximum possible score on Defense Language Proficiency Test halfway though the 18-month course.}
+\cvitem{Selected for, and completed, one-month language immersion at the International Language Institute in Cairo, Egypt.}
+\end{cvitems}}
+\end{cventries}
+\end{education}
+\begin{projects}
+\cvsection{Projects}
+\begin{cventries}
+\cventrycompact
+{\ifstrempty{https://brandon.mosher.xyz}
+{Personal Website}
+{\color{hrefblue}\href{https://brandon.mosher.xyz}{Personal Website}}}
+{}
+{}
+{}
+{\begin{cvparagraph}
+Written in vanilla ES6+ JavaScript, HTML5, and CSS3. Responsive, standards-compliant, and fast, consistently scoring 99/100 for mobile and desktop on Google Page Speed Insights. Built with npm and bundled with Webpack. Continuous integration and deployment via GitHub and Nginx Docker container on GCP. Serverless contact form implemented via Simple Email Service on AWS.
+\end{cvparagraph}}
+\cventrycompact
+{\ifstrempty{https://github.com/brandonmosher/resume}
+{Resume}
+{\color{hrefblue}\href{https://github.com/brandonmosher/resume}{Resume}}}
+{}
+{Personal}
+{2021}
+{\begin{cvparagraph}
+My personal resume adapted from posquit0's Awesome-CV. The json\_to\_tex Python package generates tex documents from arbitrary JSON data and a tex template with matching hierarchical structure and value placeholder macros. Tailored document versions can be generated using tags or an ordered set of JSON mixins. Build infrastructure keeps source, includes, and artifacts separate. Dockerfile and Visual Studio Code configuration included for a no-hassle tex environment.
+\end{cvparagraph}}
+\cventrycompact
+{\ifstrempty{}
+{Secure Multithreaded File Server}
+{\color{hrefblue}\href{}{Secure Multithreaded File Server}}}
+{}
+{University of Michigan}
+{2020}
+{\begin{cvparagraph}
+Multithreaded file server capable of safely handling concurrent requests from one or more users. Implemented server using linux sockets featuring password authentication and AES encryption. Implemented file system and server API to perform CRUD operations.
+\end{cvparagraph}}
+\cventrycompact
+{\ifstrempty{}
+{Operating System Pager}
+{\color{hrefblue}\href{}{Operating System Pager}}}
+{}
+{University of Michigan}
+{2020}
+{\begin{cvparagraph}
+Pager written in C++. Implemented process virtual address space, allocation of swap and file-backed pages, loading/evicting pages to/from physical memory, and fork with shared, swap-backed pages.
+\end{cvparagraph}}
+\cventrycompact
+{\ifstrempty{}
+{Thread Library}
+{\color{hrefblue}\href{}{Thread Library}}}
+{}
+{University of Michigan}
+{2020}
+{\begin{cvparagraph}
+User thread library for linux written in C++. Implemented multi-processor support, threads, mutexes, and conditional variables.
+\end{cvparagraph}}
+\cventrycompact
+{\ifstrempty{https://drive.google.com/drive/folders/1HFxNVsQWryOYPgpBHcxYYqhqPPS5R\_EB}
+{Lifesize Pacman}
+{\color{hrefblue}\href{https://drive.google.com/drive/folders/1HFxNVsQWryOYPgpBHcxYYqhqPPS5R\_EB}{Lifesize Pacman}}}
+{}
+{University of Michigan}
+{2019}
+{\begin{cvparagraph}
+Two-wheeled, light-seeking robot on LED pacman gameboard controlled wirelessly by N64 controller. DC motors controlled via PWM verilog module; RGB sensor via I2C; photoresistors via ADC; N64 controller and LED grid via UART; and wireless communication via XBee. Game logic written in C using A* pathfinding algorithm. Implemented on SmartFusion SoC using Advanced Peripheral Bus, hardware timers, interrupts, and memory-mapped I/O to communicate between ARM Cortex M3, integrated FPGA, and peripherals.
+\end{cvparagraph}}
+\cventrycompact
+{\ifstrempty{https://drive.google.com/drive/folders/1YjzT\_7qpdkZjQ76zcOCCvEo-v1gyrCbw}
+{Simultaneous Localization and Mapping Robot}
+{\color{hrefblue}\href{https://drive.google.com/drive/folders/1YjzT\_7qpdkZjQ76zcOCCvEo-v1gyrCbw}{Simultaneous Localization and Mapping Robot}}}
+{}
+{University of Michigan}
+{2017}
+{\begin{cvparagraph}
+Two-wheeled robot with lidar and odometry sensors capabable of exploring an unknown, obstacle-filled area using SLAM. Localization used particle filtering of Markov model of actions and sensors. Mapping and exploration employed occupancy grid based on lidar readings to detect frontiers of unknown space and navigate via A* path-finding algorithm.
+\end{cvparagraph}}
+\cventrycompact
+{\ifstrempty{https://drive.google.com/drive/folders/102AN8otUolVnhyJ00cVi4qK0T-imfvds}
+{Tic-Tac-Toe Robot}
+{\color{hrefblue}\href{https://drive.google.com/drive/folders/102AN8otUolVnhyJ00cVi4qK0T-imfvds}{Tic-Tac-Toe Robot}}}
+{}
+{University of Michigan}
+{2017}
+{\begin{cvparagraph}
+Robot arm capable of playing tic-tac-toe with ping-pong balls using forward and inverse kinematics to achieve desired end effector position and OpenCV to detect ball locations via RGB-D camera.
+\end{cvparagraph}}
+\cventrycompact
+{\ifstrempty{https://drive.google.com/drive/folders/1Zar\_EmEbRwZw6HVLnNumsjWDx8cLE\_pI}
+{MIPS R10K Microprocessor}
+{\color{hrefblue}\href{https://drive.google.com/drive/folders/1Zar\_EmEbRwZw6HVLnNumsjWDx8cLE\_pI}{MIPS R10K Microprocessor}}}
+{}
+{University of Michigan}
+{2016}
+{\begin{cvparagraph}
+RISC microprocessor based on the MIPS R10K supporting two-way superscalar, out-of-order execution, Gshare branch prediction, and simultaneous multi-threading. Written in system verilog and synthesized via Synopsys VCS.
+\end{cvparagraph}}
+\cventrycompact
+{\ifstrempty{https://drive.google.com/drive/folders/1HPq7hU05i7k-j3WwfQ18W5DzQ3FlkSZ9}
+{Topological Mapping Robot}
+{\color{hrefblue}\href{https://drive.google.com/drive/folders/1HPq7hU05i7k-j3WwfQ18W5DzQ3FlkSZ9}{Topological Mapping Robot}}}
+{}
+{University of Michigan}
+{2017}
+{\begin{cvparagraph}
+Implemented an algorithm to build a topological map of a single-story building using lidar-based intersection and corridor detection in combination with simultaneous localization and mapping.
+\end{cvparagraph}}
+\cventrycompact
+{\ifstrempty{https://github.com/brandonmosher/astarc}
+{astarc}
+{\color{hrefblue}\href{https://github.com/brandonmosher/astarc}{astarc}}}
+{}
+{Personal}
+{2020}
+{\begin{cvparagraph}
+Templated A* algorithm written in C.
+\end{cvparagraph}}
+\cventrycompact
+{\ifstrempty{https://github.com/brandonmosher/pyctemp}
+{pyctemp}
+{\color{hrefblue}\href{https://github.com/brandonmosher/pyctemp}{pyctemp}}}
+{}
+{Personal}
+{2020}
+{\begin{cvparagraph}
+Python preprocessor to implement a limited subset of C++ template features in C.
+\end{cvparagraph}}
+\cventrycompact
+{\ifstrempty{https://github.com/brandonmosher/devcontainer-base}
+{Devcontainer Base}
+{\color{hrefblue}\href{https://github.com/brandonmosher/devcontainer-base}{Devcontainer Base}}}
+{}
+{Personal}
+{2020}
+{\begin{cvparagraph}
+A ubuntu Docker image configured for interactive use suitable for a general-purpose development environment.
+\end{cvparagraph}}
+\cventrycompact
+{\ifstrempty{https://brandon.mosher.xyz/\#projects}
+{Portfolio}
+{\color{hrefblue}\href{https://brandon.mosher.xyz/\#projects}{Portfolio}}}
+{}
+{}
+{}
+{\begin{cvparagraph}
+For other projects, see my portfolio.
+\end{cvparagraph}}
+\cventrycompact
+{\ifstrempty{}
+{Note on Military Projects}
+{\color{hrefblue}\href{}{Note on Military Projects}}}
+{}
+{}
+{}
+{\begin{cvparagraph}
+Due to their sensitive nature, military projects mentioned in this resume are described in vague terms and are not available for demonstration.
+\end{cvparagraph}}
+\end{cventries}
+\end{projects}
+\begin{skillsets}
+\cvsection{Skills}
+\begin{cventries}
+\cvskillset
+{Programming}
+{C, C++, Python, Javascript ES6+, VBA, ARM Asembly, LaTex, SQL, Object-oriented design}
+\par
+\cvskillset
+{DevOps}
+{AWS, Google Cloud, Docker, Git}
+\par
+\cvskillset
+{Back-end}
+{REST API, node.js}
+\par
+\cvskillset
+{Front-end}
+{HTML5, CSS3, React, SharePoint}
+\par
+\cvskillset
+{Logic Design}
+{verilog, FPGAs, Synopsys VCS}
+\par
+\cvskillset
+{Languages}
+{English (native); Modern Standard, Levantine, Egyptian, and Iraqi Arabic (professional working proficiency)}
+\par
+\end{cventries}
+\end{skillsets}
+\end{cv}
+\makefooter
+{\today}
+{Brandon Mosher~~~·~~~Résumé}
+{\thepage}
+\end{document}

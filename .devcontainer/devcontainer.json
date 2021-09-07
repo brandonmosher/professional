@@ -1,0 +1,11 @@
+{
+    "build": {
+        "dockerfile": "Dockerfile",
+        "context": ".."
+    },
+    "extensions": [
+        "james-yu.latex-workshop",
+        "analytic-signal.preview-pdf",
+        "ms-python.python"
+    ],
+}

@@ -1,0 +1,124 @@
+%-------------------------------------------------------------------------------
+% CONFIGURATIONS
+%-------------------------------------------------------------------------------
+% A4 paper size by default, use 'letterpaper' for US letter
+\documentclass[11pt, a4paper]{cv}
+
+% Environments for sections
+\newenvironment{header}{}{\par}
+% \newenvironment{summary}{}{\par}
+\newenvironment{experience}{}{\par}
+\newenvironment{projects}{}{\par}
+\newenvironment{education}{}{\par}
+\newenvironment{skillsets}{}{\par}
+\newenvironment{cv}{}{\par}
+\newenvironment{degrees}{\begin{separatedItems}{\headerSocialSep}}{\end{separatedItems}}
+\newcommand*{\degree}[1]{\separatedItem{#1}}
+
+% Configure page margins with geometry
+\geometry{left=1.4cm, top=.8cm, right=1.4cm, bottom=1.8cm, footskip=.5cm}
+
+% Specify the location of the included fonts
+\fontdir[../fonts/]
+
+\colorlet{awesome}{awesome-red}
+
+% Set false if you don't want to highlight section with awesome color
+\setbool{sectionColorHighlight}{true}
+
+% If you would like to change the social information separator from a pipe (|) to something else
+\renewcommand{\headerSocialSep}{\quad\textbar\quad}
+
+\begin{document}
+    \name{\p{firstName}}{\p{lastName}}
+    \begin{header}
+        \position{\p{position}}
+        \address{\p{address}}
+        \mobile{\p{mobile}}
+        \email{\p{email}}
+        \homepage{\p{homepage}}
+        \github{\p{github}}
+        \linkedin{\p{linkedin}}
+        \makeheader[C]
+    \end{header}
+    \bigskip
+    \begin{cv}
+        % \begin{summary}
+        %     \cvsection{\p{title}}
+        %     \begin{cvparagraph}
+        %     \p{}
+        %     \end{cvparagraph}
+        % \end{summary}
+
+        \begin{experience}
+            \cvsection{\p{title}}
+            \begin{cventries}
+                \cventry
+                    {\p{organization}}
+                    {\p{jobTitle}}
+                    {\p{location}}
+                    {\p{startDate} - \p{endDate}}
+                    {
+                        \begin{cvitems}
+                            \cvitem{\p{}}
+                        \end{cvitems}
+                    }
+            \end{cventries}
+        \end{experience}
+
+        \begin{education}
+            \cvsection{\p{title}}
+            \begin{cventries}
+                \cventry
+                {
+                    \begin{degrees}
+                        \degree{\p{}}
+                    \end{degrees}
+                }
+                {\p{institution}}
+                {\p{location}}
+                {\p{endDate}}
+                {
+                    \begin{cvitems}
+                        \cvitem{\p{}}
+                    \end{cvitems}
+                }
+            \end{cventries}
+        \end{education}
+        
+        \begin{projects}
+            \cvsection{\p{title}}
+            \begin{cventries}
+                \cventrycompact
+                    {
+                        \ifstrempty{\p{url}}
+                        {\p{name}}
+                        {\color{hrefblue}\href{\p{url}}{\p{name}}}
+                    }
+                    {}
+                    {\p{organization}}
+                    {\p{date}}
+                    {
+                        \begin{cvparagraph}
+                            \p{description}
+                        \end{cvparagraph}
+                    }
+            \end{cventries}
+        \end{projects}
+        
+        \begin{skillsets}
+            \cvsection{\p{title}}
+            \begin{cventries}
+                \cvskillset
+                    {\p{category}}
+                    {\p{skillset}}
+                    \par
+            \end{cventries}
+        \end{skillsets}
+    \end{cv}
+    
+    \makefooter
+        {\today}
+        {\p{firstName} \p{lastName}~~~·~~~Résumé}
+        {\thepage}
+\end{document}

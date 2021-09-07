@@ -1,0 +1,35 @@
+{
+    "document": {
+        "coverletter":{
+            "opening": {
+                "toName": "Google Recruitment Team",
+                "toAddress": "Google Inc.\n1600 Amphitheatre Parkway\nMountain View, CA 94043",
+                "subject": "Software Engineer Job Application",
+                "openingPhrase": "Dear Sir or Madam"
+            },
+            "closing": {
+                "closingPhrase": "Sincerely,"
+            },
+            "body": [
+                {
+                    "title": "About Me",
+                    "text": "I'm a cool dude!"
+                },
+                {
+                    "title": "Why Google",
+                    "text": "Google's a cool dude!"
+                },
+                {
+                    "title": "Why Me",
+                    "text": "Did I mention that I'm a cool dude?"
+                }
+            ],
+            "enclosures": [
+                {
+                    "type": "Attached",
+                    "name": "Resume"
+                }
+            ]
+        }
+    }
+}
