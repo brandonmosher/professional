@@ -6,7 +6,7 @@
 
 % Environments for sections
 \newenvironment{header}{}{\par}
-% \newenvironment{summary}{}{\par}
+\newenvironment{summary}{}{\par}
 \newenvironment{experience}{}{\par}
 \newenvironment{projects}{}{\par}
 \newenvironment{education}{}{\par}
@@ -46,12 +46,12 @@
     \end{header}
     \bigskip
     \begin{cv}
-        % \begin{summary}
-        %     \cvsection{\p{title}}
-        %     \begin{cvparagraph}
-        %     \p{}
-        %     \end{cvparagraph}
-        % \end{summary}
+        \begin{summary}
+            \cvsection{\p{title}}
+            \begin{cvparagraph}
+            \p{}
+            \end{cvparagraph}
+        \end{summary}
 
         \begin{experience}
             \cvsection{\p{title}}

@@ -10,7 +10,7 @@ Pending
     - json merge and sort property names
     - no-prune-property-names
     - strategies for overwrite, omit, merge
-
+- consisten use of title, value, name property names
 - input python files that generate JSON dynamically. e.g. achieve skills grouped by proficiency in one setting and skills by category in another.
 
 Complete
