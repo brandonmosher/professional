@@ -104,14 +104,24 @@ def filter_obj(obj, func):
         elif isinstance(obj, list):
             obj.remove(value)
 
-def merge_obj(a, b):
+def merge_obj(a, b, merge_comp=None, sort_key=None):
     for key, value in b.items():
         if key not in a:
             a[key] = value
         elif isinstance(value, dict):
-            merge_obj(a[key], value)
+            merge_obj(a[key], value, merge_comp, sort_key)
         elif isinstance(value, list):
-            a[key] += value
+            for v_new in value:
+                merged = False
+                for v_cur in a[key]:
+                    merged = merge_comp(v_cur, v_new) if merge_comp else False
+                    if merged:
+                        merge_obj(v_cur, v_new, merge_comp, sort_key)
+                        break
+                if not merged:
+                    a[key].append(v_new)
+            if sort_key:
+                a[key].sort(key=sort_key)
         else:
             a[key] = value
 
@@ -123,14 +133,16 @@ def map_obj(obj, func):
         else:
             obj[key] = func(value)
 
-def prune_obj(obj, template):
+def prune_obj(obj, template, no_prune_property_names=[]):
     if(isinstance(obj, dict)):
         keys_to_delete = set()
         for key, value in obj.items():
-            if key in template:
-                prune_obj(value, template[key])
+            if key in no_prune_property_names:
+                continue
+            elif key in template:
+                prune_obj(value, template[key], no_prune_property_names)
             elif '{{{}}}'.format(key) in template['template']:
-                pass
+                continue
             else:
                 keys_to_delete.add(key)
         for key in keys_to_delete:
@@ -138,7 +150,7 @@ def prune_obj(obj, template):
     elif(isinstance(obj, list)):
         for i, value in enumerate(obj):
             if(isinstance(value, dict)):
-                prune_obj(value, template)
+                prune_obj(value, template, no_prune_property_names)
 
 def reduce_obj(obj, template):
     if(isinstance(obj, dict)):
@@ -160,13 +172,14 @@ def generate_template_helper(nodelist):
     output = {'template': ''}
     for node in nodelist:
         if isinstance(node, LatexEnvironmentNode):
-            nodelist = node.nodelist
-            environment_args = ""
-            if isinstance(nodelist[0], LatexGroupNode):
-                environment_args = node.nodelist[0].latex_verbatim()
-                nodelist = nodelist[1:]
-            output['template'] += '\\begin{{{0}}}{1}\n\\p{{{0}}}\n\\end{{{0}}}'.format(node.environmentname, environment_args)
-            output[node.environmentname] = generate_template_helper(nodelist)
+            if len(node.nodelist):
+                nodelist = node.nodelist
+                environment_args = ""
+                if isinstance(nodelist[0], LatexGroupNode):
+                    environment_args = node.nodelist[0].latex_verbatim()
+                    nodelist = nodelist[1:]
+                output['template'] += '\\begin{{{0}}}{1}\n\\p{{{0}}}\n\\end{{{0}}}'.format(node.environmentname, environment_args)
+                output[node.environmentname] = generate_template_helper(nodelist)
         elif isinstance(node, LatexGroupNode) and len(node.nodelist) > 1:
             tmp = generate_template_helper(node.nodelist)
             template = '{}{{{}}}'.format(output['template'], tmp['template'])

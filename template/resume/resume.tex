@@ -15,6 +15,9 @@
 \newenvironment{degrees}{\begin{separatedItems}{\headerSocialSep}}{\end{separatedItems}}
 \newcommand*{\degree}[1]{\separatedItem{#1}}
 
+\newenvironment{skills}{\begin{separatedItems}{, }}{\end{separatedItems}}
+\newcommand*{\skill}[1]{\separatedItem{#1}}
+
 % Configure page margins with geometry
 \geometry{left=1.4cm, top=.8cm, right=1.4cm, bottom=1.8cm, footskip=.5cm}
 
@@ -110,8 +113,12 @@
             \cvsection{\p{title}}
             \begin{cventries}
                 \cvskillset
-                    {\p{category}}
-                    {\p{skillset}}
+                    {\p{category}:}
+                    {
+                        \begin{skills}
+                            \skill{\p{title}}%
+                        \end{skills}
+                    }
                     \par
             \end{cventries}
         \end{skillsets}

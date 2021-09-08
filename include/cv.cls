@@ -117,12 +117,12 @@
 %-------------------------------------------------------------------------------
 
 % cvskillset styles
-\newcommand*{\skillsetcategorystyle}[1]{{\fontsize{10pt}{1em}\bodyfont\bfseries\color{darktext} #1}}
-\newcommand*{\skillsetstyle}[1]{{\fontsize{9pt}{1em}\bodyfontlight\color{text} #1}}
+\newcommand*{\skillsetcategorystyle}[1]{{\fontsize{10pt}{1em}\bodyfont\bfseries\color{darktext}#1}}
+\newcommand*{\skillsetstyle}[1]{{\fontsize{9pt}{1em}\bodyfontlight\color{text}#1}}
 
 % usage \cvskillset[<category><skillset>]
 \newcommand*{\cvskillset}[2]{%
-    \skillsetcategorystyle{#1} \skillsetstyle{#2}
+    \skillsetcategorystyle{#1}\skillsetstyle{#2}
 }
 
 %-------------------------------------------------------------------------------

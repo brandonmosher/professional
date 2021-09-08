@@ -7,6 +7,8 @@
 \newenvironment{cv}{}{\par}
 \newenvironment{degrees}{\begin{separatedItems}{\headerSocialSep}}{\end{separatedItems}}
 \newcommand*{\degree}[1]{\separatedItem{#1}}
+\newenvironment{skills}{\begin{separatedItems}{, }}{\end{separatedItems}}
+\newcommand*{\skill}[1]{\separatedItem{#1}}
 \geometry{left=1.4cm, top=.8cm, right=1.4cm, bottom=1.8cm, footskip=.5cm}
 \fontdir[../fonts/]
 \colorlet{awesome}{awesome-red}
@@ -254,28 +256,57 @@ Due to their sensitive nature, military projects mentioned in this resume are de
 \cvsection{Skills}
 \begin{cventries}
 \cvskillset
-{Programming}
-{C, C++, Python, Javascript ES6+, VBA, ARM Asembly, LaTex, SQL, Object-oriented design}
+{Programming:}
+{\begin{skills}
+\skill{HTML5, CSS3}%
+\skill{Javascript ES6+}%
+\skill{Python}%
+\skill{VBA}%
+\skill{ARM Asembly}%
+\skill{LaTex}%
+\skill{SQL}%
+\skill{Object-oriented design}%
+\skill{ARM ASM}%
+\end{skills}}
 \par
 \cvskillset
-{DevOps}
-{AWS, Google Cloud, Docker, Git}
+{DevOps:}
+{\begin{skills}
+\skill{AWS}%
+\skill{Google Cloud}%
+\skill{Docker}%
+\skill{Git}%
+\skill{Linux}%
+\end{skills}}
 \par
 \cvskillset
-{Back-end}
-{REST API, node.js}
+{Back-end:}
+{\begin{skills}
+\skill{REST API}%
+\skill{node.js}%
+\end{skills}}
 \par
 \cvskillset
-{Front-end}
-{HTML5, CSS3, React, SharePoint}
+{Front-end:}
+{\begin{skills}
+\skill{HTML5, CSS3}%
+\skill{React}%
+\skill{SharePoint}%
+\end{skills}}
 \par
 \cvskillset
-{Logic Design}
-{verilog, FPGAs, Synopsys VCS}
+{Logic Design:}
+{\begin{skills}
+\skill{Verilog}%
+\skill{FPGAs}%
+\skill{Synopsys VCS}%
+\end{skills}}
 \par
 \cvskillset
-{Languages}
-{English (native); Modern Standard, Levantine, Egyptian, and Iraqi Arabic (professional working proficiency)}
+{Languages:}
+{\begin{skills}
+\skill{English (native); Modern Standard, Levantine, Egyptian, and Iraqi Arabic (professional working proficiency)}%
+\end{skills}}
 \par
 \end{cventries}
 \end{skillsets}

@@ -146,11 +146,11 @@
     \ifbool{isFirstSeparatedItem}{\setbool{isFirstSeparatedItem}{false}}{\separator}#1%
 }%
 
-\newenvironment{separatedItems}[1]{
-  \newcommand{\separator}{#1}
+\newenvironment{separatedItems}[1]{%
+  \newcommand{\separator}{#1}%
   \newbool{isFirstSeparatedItem}%
   \setbool{isFirstSeparatedItem}{true}%
-}{}
+}{}%
 
 %-------------------------------------------------------------------------------
 %                personal information

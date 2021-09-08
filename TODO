@@ -4,7 +4,14 @@ Pending
  - Consider adding --tex-template-dirpath and --data-dirpath command-line options to limit the need for relative/absolute paths in .version files.
 - Consider implementing more fine-grained control over JSON merge for arrays including the ability to merge objects in an with matching "id", and to specify "order". Perhaps a 'merge_behavior' property that specifies 'insert_before' or 'insert_after'.
 - make "value" property work transparently (i.e. empty \p{} tag will work) for objects in lists. Or just use "value: everywhere"
-- Update README section. Add section for new tag JSON format. Add discussion on keeping a private repo for data and using tags to produce "redacted" versions of professional documents.
+- Update README section.
+    - Add section for new tag JSON format.
+    - Add discussion on keeping a private repo for data and using tags to produce "redacted" versions of professional documents.
+    - json merge and sort property names
+    - no-prune-property-names
+    - strategies for overwrite, omit, merge
+
+- input python files that generate JSON dynamically. e.g. achieve skills grouped by proficiency in one setting and skills by category in another.
 
 Complete
 - Removed unused properties from JSON in build

@@ -35,6 +35,21 @@ parser.add_argument(
     nargs='*',
     help='Only JSON entries NOT matching the specified tags or entries with no tags specified will be processed.')
 
+parser.add_argument(
+    '--no-prune-property-names',
+    nargs='*',
+    default=[],
+    help='A list of property names that will not be pruned from the JSON data whether or not it is used in the tex template.')
+
+parser.add_argument(
+    '--json-merge-property-name',
+    type=str,
+    help='The property values associated with property name are compared to determine the equality of two JSON objects when their equality cannot be inferred by the hierarchical structure.')
+
+parser.add_argument(
+    '--json-sort-property-name',
+    type=str,
+    help='The property values associated with property name are compared to determine the ordering of two JSON objects when their order cannot be inferred by the hierarchical structure.')
 
 def filter_filepaths_by_file_suffix(filepaths, file_suffix):
     return [filepath for filepath in filepaths if filepath.suffix == file_suffix]
@@ -56,10 +71,18 @@ def main():
     # import pprint
     # pp = pprint.PrettyPrinter()
     # pp.pprint(template)
+
+    merge_comp = None
+    if(args.json_merge_property_name):
+        merge_comp = lambda v_cur, v_new: isinstance(v_cur, dict) and (args.json_merge_property_name in v_cur) and isinstance(v_new, dict) and (args.json_merge_property_name in v_new) and (v_cur[args.json_merge_property_name] == v_new[args.json_merge_property_name])
     
+    merge_sort_key = None
+    if(args.json_sort_property_name):
+        merge_sort_key = lambda obj : (args.json_sort_property_name not in obj, obj.get(args.json_sort_property_name, None))
+
     merged_json = {}
     for json_filepath in json_filepaths:
-        jtt.merge_obj(merged_json, jtt.load_json(json_filepath))
+        jtt.merge_obj(merged_json, jtt.load_json(json_filepath), merge_comp=merge_comp, sort_key=merge_sort_key)
     
     def filter_func(target_tags, include):
         def f(value):
@@ -102,7 +125,7 @@ def main():
     if(args.exclude_tags):
         jtt.filter_obj(merged_json, filter_func(args.exclude_tags, False))
     
-    jtt.prune_obj(merged_json, template)
+    jtt.prune_obj(merged_json, template, no_prune_property_names=args.no_prune_property_names)
 
     args.output_dirpath.mkdir(parents=True, exist_ok=True)
 
