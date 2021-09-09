@@ -19,7 +19,7 @@
 %-------------------------------------------------------------------------------
 
 % cvsection styles
-\newcommand*{\cvsectionstyle}[1]{{\fontsize{16pt}{1em}\bodyfont\bfseries\color{text}\@sectioncolor #1}}
+\newcommand*{\cvsectionstyle}[1]{{\fontsize{15pt}{1em}\bodyfont\bfseries\color{text}\@sectioncolor #1}}
 
 % usage: \cvsection{<section-title>}
 \newcommand{\cvsection}[1]{%
@@ -116,13 +116,23 @@
 %                cvskillset
 %-------------------------------------------------------------------------------
 
+\newenvironment{skillsets}{}{\par}
+
+\newenvironment{skills}{\begin{separatedItems}{, }}{\end{separatedItems}}
+\newcommand*{\skill}[1]{\separatedItem{#1}}
+
 % cvskillset styles
-\newcommand*{\skillsetcategorystyle}[1]{{\fontsize{10pt}{1em}\bodyfont\bfseries\color{darktext}#1}}
+\newcommand*{\skillsettitlestyle}[1]{{\fontsize{10pt}{1em}\bodyfont\bfseries\color{darktext}#1}}
 \newcommand*{\skillsetstyle}[1]{{\fontsize{9pt}{1em}\bodyfontlight\color{text}#1}}
 
 % usage \cvskillset[<category><skillset>]
+\newcommand*{\hobby}[2]{%
+    \skillsettitlestyle{#1}\skillsetstyle{#2}
+}
+
+% usage \cvskillset[<category><skillset>]
 \newcommand*{\cvskillset}[2]{%
-    \skillsetcategorystyle{#1}\skillsetstyle{#2}
+    \skillsettitlestyle{#1}\skillsetstyle{#2}
 }
 
 %-------------------------------------------------------------------------------
@@ -132,3 +142,13 @@
 \newenvironment{cvitems}{}{}
 
 \newcommand*{\cvitem}[1]{\hangindent=1em\makebox[1em]{\textbullet}#1\\}
+
+% Environments for sections
+\newenvironment{cv}{}{\par}
+\newenvironment{summary}{}{\par}
+\newenvironment{experience}{}{\par}
+\newenvironment{projects}{}{\par}
+\newenvironment{education}{}{\par}
+\newenvironment{degrees}{\begin{separatedItems}{\headerSocialSep}}{\end{separatedItems}}
+\newcommand*{\degree}[1]{\separatedItem{#1}}
+\newenvironment{hobbies}{}{\par}

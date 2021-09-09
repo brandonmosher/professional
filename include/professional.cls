@@ -192,6 +192,8 @@
 %-------------------------------------------------------------------------------
 %                header and footer
 %-------------------------------------------------------------------------------
+\newenvironment{header}{}{\par}
+
 % Needed to make header & footer effeciently
 \RequirePackage{fancyhdr}
 

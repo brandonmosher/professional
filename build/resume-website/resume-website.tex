@@ -1,15 +1,4 @@
 \documentclass[11pt, a4paper]{cv}
-\newenvironment{header}{}{\par}
-\newenvironment{summary}{}{\par}
-\newenvironment{experience}{}{\par}
-\newenvironment{projects}{}{\par}
-\newenvironment{education}{}{\par}
-\newenvironment{skillsets}{}{\par}
-\newenvironment{cv}{}{\par}
-\newenvironment{degrees}{\begin{separatedItems}{\headerSocialSep}}{\end{separatedItems}}
-\newcommand*{\degree}[1]{\separatedItem{#1}}
-\newenvironment{skills}{\begin{separatedItems}{, }}{\end{separatedItems}}
-\newcommand*{\skill}[1]{\separatedItem{#1}}
 \geometry{left=1.4cm, top=.8cm, right=1.4cm, bottom=1.8cm, footskip=.5cm}
 \fontdir[../fonts/]
 \colorlet{awesome}{awesome-red}
@@ -27,19 +16,19 @@
 \linkedin{brandondmosher}
 \makeheader[C]
 \end{header}
-\bigskip
+\medskip
 \begin{cv}
 \begin{summary}
 \cvsection{Summary}
 \begin{cvparagraph}
-I am a former U.S. Navy Cryptologic Technician Chief Petty Officer turned software engineer and physicist. I have over a decade of experience leading teams, conducting intelligence analysis, troubleshooting complex software systems, and coding solutions in high-pressure operational environments. My technical skills, which include computer architecture, embedded systems, server infrastructure, APIs, user interfaces, data analytics, and DevOps, span the entire stack. My interest areas include government efficiency and transparency, defense, cyber security, transportation, infrastructure, medicine, and environmental sustainability.
+I am a former U.S. Navy Cryptologic Technician Chief Petty Officer turned software engineer and physicist. I have over a decade of experience leading teams, conducting intelligence analysis, troubleshooting complex software systems, and coding solutions in high-pressure operational environments. My technical skills, which include computer architecture, embedded systems, server infrastructure, APIs, user interfaces, data analytics, and DevOps, span the entire stack. My interest areas include government efficiency and transparency, logistics, defense, cyber security, transportation, infrastructure, medicine, and environmental sustainability.
 \end{cvparagraph}
 \end{summary}
 \begin{experience}
 \cvsection{Work Experience}
 \begin{cventries}
 \cventry
-{National Security Agency}
+{U.S. Navy Reserves, National Security Agency}
 {Non-Commissioned Officer in Charge}
 {Overseas}
 {Sep. 2019 - Sep. 2020}
@@ -57,16 +46,25 @@ I am a former U.S. Navy Cryptologic Technician Chief Petty Officer turned softwa
 {United States}
 {Sep. 2017 - Sep. 2019}
 {\begin{cvitems}
-\cvitem{Managed \$100,000 training budget; coordinated travel, clearance investigation, polygraph, and facility and information systems access.}
+\cvitem{Managed \$300,000 training budget; coordinated travel, clearance investigation, polygraph, and facility and information systems access.}
 \cvitem{Developed SharePoint web application to coordinate regional remote distributed operations, increasing productivity 500\%.}
 \cvitem{Developed SharePoint web application to streamline personnel security document workflows, decreasing processing time 50\%.}
 \cvitem{Awarded Navy Achievement Medal.}
 \end{cvitems}}
 \cventry
-{National Security Agency}
+{U.S. Navy Reserves, University of Michigan}
+{Cryptologic Language Analyst, Full-Time Student}
+{United States}
+{Sep. 2014 - Sep. 2017}
+{\begin{cvitems}
+\cvitem{Built roster, organizational chart, training tracker, and newsletter web applications, streamlining unit administration and communication}
+\cvitem{Full-time engineering Student at the University of Michigan pursing degrees in Computer Science and Physics.}
+\end{cvitems}}
+\cventry
+{U.S. Navy, National Security Agency}
 {Assistant Non-Commissioned Officer in Charge, Cryptologic Language Analyst}
 {United States}
-{Aug. 2011 - Aug. 2014}
+{Sep. 2011 - Sep. 2014}
 {\begin{cvitems}
 \cvitem{Qualified in Levantine, Iraqi, and Egyptian Arabic dialects at ACTFL advanced and superior levels.}
 \cvitem{Set standards for, trained, and oversaw analysts providing time-sensitive and strategic reporting to tactical and executive decision-makers.}
@@ -89,7 +87,7 @@ I am a former U.S. Navy Cryptologic Technician Chief Petty Officer turned softwa
 {Ann Arbor, MI}
 {Dec. 2020}
 {\begin{cvitems}
-\cvitem{Relevant Coursework: Operating Systems, Autonomous Robotics, Microprocessor/Logic Design, Embedded Systems, Computer Security, Algorithms, and Data Structures. Theoretical Statistics, Probability, and Linear Algebra. Electricity/Magnetism, Mechanics, Thermodynamics, and Quantum Physics.}
+\cvitem{Relevant Coursework: Operating Systems, Robotics, Microprocessor/Logic Design, Embedded Systems, Security, Algorithms, and Data Structures. Theoretical Statistics, Probability, and Linear Algebra. Electricity/Magnetism, Mechanics, Thermodynamics, and Quantum Physics.}
 \end{cvitems}}
 \cventry
 {\begin{degrees}
@@ -237,16 +235,6 @@ Python preprocessor to implement a limited subset of C++ template features in C.
 {\begin{cvparagraph}
 A ubuntu Docker image configured for interactive use suitable for a general-purpose development environment.
 \end{cvparagraph}}
-\cventrycompact
-{\ifstrempty{https://brandon.mosher.xyz/\#projects}
-{Portfolio}
-{\color{hrefblue}\href{https://brandon.mosher.xyz/\#projects}{Portfolio}}}
-{}
-{}
-{}
-{\begin{cvparagraph}
-For other projects, see my portfolio.
-\end{cvparagraph}}
 \end{cventries}
 \end{projects}
 \begin{skillsets}
@@ -307,6 +295,13 @@ For other projects, see my portfolio.
 \par
 \end{cventries}
 \end{skillsets}
+\begin{hobbies}
+\cvsection{Hobbies}
+\begin{cventries}
+\hobby{Music Performance and Recording:~}{Played rock and jazz drumset for over 20 years. Recorded full-length album for local band.}\\
+\hobby{Renovation:~}{Rennovated two homes resulting in a 200\% and 400\% increase in value. respectively. Drew plans, made all material selections, and performed various rough and finish carpentry, electrical, and plumbing work.}\\
+\end{cventries}
+\end{hobbies}
 \end{cv}
 \makefooter
 {\today}

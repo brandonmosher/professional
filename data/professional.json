@@ -18,8 +18,10 @@
             "body": [
                 {
                     "title": "About Me",
-                    "paragraphs": [
-                        "I am a software engineer with over 900 years of experience."
+                    "cvparagraphs": [
+                        {
+                            "cvparagraph": "I am a software engineer with over 900 years of experience."
+                        }
                     ]
                 }
             ],
@@ -29,7 +31,7 @@
             "enclosures": [
                 {
                     "type": "Attached",
-                    "name": "Resume"
+                    "title": "Resume"
                 }
             ]
         },
@@ -94,78 +96,86 @@
                     }
                 ]
             },
-            "skillsets": {
-                "title": "Skills",
-                "cventries": [
-                    {
-                        "category": "Programming",
-                        "skillset": "C, C++, Python, Javascript ES6+, VBA, ARM Asembly, LaTex, SQL, Object-oriented design"
-                    },
-                    {
-                        "category": "DevOps",
-                        "skillset": "AWS, Google Cloud, Docker, Git"
-                    },
-                    {
-                        "category": "Back-end",
-                        "skillset": "REST API, node.js"
-                    },
-                    {
-                        "category": "Front-end",
-                        "skillset": "HTML5, CSS3, React, SharePoint"
-                    },
-                    {
-                        "category": "Logic Design",
-                        "skillset": "verilog, FPGAs, Synopsys VCS"
-                    },
-                    {
-                        "category": "Languages",
-                        "skillset": "English (native);"
-                    }
-                ]
-            },
-            "skills": {
-                "title": "Skills",
-                "cventries": [
-                    {
-                        "name": "HTML5, CSS3",
-                        "proficiencyPercentage": "80"
-                    },
-                    {
-                        "name": "Javascript ES6+",
-                        "proficiencyPercentage": "80"
-                    },
-                    {
-                        "name": "Python",
-                        "proficiencyPercentage": "80"
-                    },
-                    {
-                        "name": "C, C++",
-                        "proficiencyPercentage": "80"
-                    },
-                    {
-                        "name": "Linux",
-                        "proficiencyPercentage": "70"
-                    }
-                ]
-            },
             "projects": {
                 "title": "Projects",
                 "cventries": [
                     {
-                        "name": "Personal Website",
+                        "title": "Personal Website",
                         "url": "https://brandon.mosher.xyz",
                         "organization": "",
                         "date": "2021",
                         "cvparagraph": "It's a website."
                     },
                     {
-                        "name": "Resume",
+                        "title": "Resume",
                         "url": "https://github.com/brandonmosher/resume",
                         "organization": "",
                         "date": "2021",
                         "cvparagraph": "It's a resume.",
                         "tags": [
                             "cv"
+                        ]
+                    }
+                ]
+            },
+            "skillsets": {
+                "title": "Skills",
+                "cventries": [
+                    {
+                        "title": "Programming",
+                        "skills": [
+                            {
+                                "title": "C, C++",
+                                "proficiencyPercentage": "70"
+                            },
+                            {
+                                "title": "Javascript ES6+",
+                                "proficiencyPercentage": "80"
+                            },
+                            {
+                                "title": "Python",
+                                "proficiencyPercentage": "80"
+                            },
+                            {
+                                "title": "VBA"
+                            },
+                            {
+                                "title": "ARM Asembly"
+                            },
+                            {
+                                "title": "LaTex"
+                            },
+                            {
+                                "title": "SQL"
+                            },
+                            {
+                                "title": "Object-oriented design"
+                            },
+                            {
+                                "title": "ARM ASM",
+                                "proficiencyPercentage": "65"
+                            }
+                        ]
+                    },
+                    {
+                        "title": "DevOps",
+                        "skills": [
+                            {
+                                "title": "AWS"
+                            },
+                            {
+                                "title": "Google Cloud"
+                            },
+                            {
+                                "title": "Docker"
+                            },
+                            {
+                                "title": "Git"
+                            },
+                            {
+                                "title": "Linux",
+                                "proficiencyPercentage": "70"
+                            }
                         ]
                     }
                 ]

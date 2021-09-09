@@ -4,20 +4,6 @@
 % A4 paper size by default, use 'letterpaper' for US letter
 \documentclass[11pt, a4paper]{cv}
 
-% Environments for sections
-\newenvironment{header}{}{\par}
-\newenvironment{summary}{}{\par}
-\newenvironment{experience}{}{\par}
-\newenvironment{projects}{}{\par}
-\newenvironment{education}{}{\par}
-\newenvironment{skillsets}{}{\par}
-\newenvironment{cv}{}{\par}
-\newenvironment{degrees}{\begin{separatedItems}{\headerSocialSep}}{\end{separatedItems}}
-\newcommand*{\degree}[1]{\separatedItem{#1}}
-
-\newenvironment{skills}{\begin{separatedItems}{, }}{\end{separatedItems}}
-\newcommand*{\skill}[1]{\separatedItem{#1}}
-
 % Configure page margins with geometry
 \geometry{left=1.4cm, top=.8cm, right=1.4cm, bottom=1.8cm, footskip=.5cm}
 
@@ -44,7 +30,7 @@
         \linkedin{\p{linkedin}}
         \makeheader[C]
     \end{header}
-    \bigskip
+    \medskip
     \begin{cv}
         \begin{summary}
             \cvsection{\p{title}}
@@ -95,8 +81,8 @@
                 \cventrycompact
                     {
                         \ifstrempty{\p{url}}
-                        {\p{name}}
-                        {\color{hrefblue}\href{\p{url}}{\p{name}}}
+                        {\p{title}}
+                        {\color{hrefblue}\href{\p{url}}{\p{title}}}
                     }
                     {}
                     {\p{organization}}
@@ -113,7 +99,7 @@
             \cvsection{\p{title}}
             \begin{cventries}
                 \cvskillset
-                    {\p{category}:}
+                    {\p{title}:}
                     {
                         \begin{skills}
                             \skill{\p{title}}%
@@ -122,8 +108,15 @@
                     \par
             \end{cventries}
         \end{skillsets}
+
+        \begin{hobbies}
+            \cvsection{\p{title}}
+            \begin{cventries}
+                \hobby{\p{title}:~}{\p{cvparagraph}}\\
+            \end{cventries}
+        \end{hobbies}
     \end{cv}
-    
+
     \makefooter
         {\today}
         {\p{firstName} \p{lastName}~~~·~~~Résumé}

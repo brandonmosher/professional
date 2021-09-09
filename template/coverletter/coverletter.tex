@@ -1,6 +1,6 @@
 \documentclass[11pt, a4paper]{coverletter}
 \newenvironment{coverletter}{}{}
-\newenvironment{paragraphs}{}{}
+\newenvironment{cvparagraphs}{}{}
 % Configure page margins with geometry
 \geometry{left=1.4cm, top=.8cm, right=1.4cm, bottom=1.8cm, footskip=.5cm}
 
@@ -47,9 +47,11 @@
         \setlength{\parskip}{1em}
         \lettersection{\p{title}}
         {
-            \begin{paragraphs}
-                \p{value}\par
-            \end{paragraphs}
+            \begin{clparagraphs}
+                \begin{clparagraph}
+                    \p{}
+                \end{clparagraph}
+            \end{clparagraphs}
         }
     \end{body}
 
@@ -59,7 +61,7 @@
     \end{closing}
 
     \begin{enclosures}
-        \letterenclosure{\p{type}}{\p{name}}
+        \letterenclosure{\p{type}}{\p{title}}
     \end{enclosures}
 \end{coverletter}
 \makefooter

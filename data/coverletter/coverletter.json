@@ -1,6 +1,6 @@
 {
     "document": {
-        "coverletter":{
+        "coverletter": {
             "opening": {
                 "toName": "Google Recruitment Team",
                 "toAddress": "Google Inc.\n1600 Amphitheatre Parkway\nMountain View, CA 94043",
@@ -13,15 +13,27 @@
             "body": [
                 {
                     "title": "About Me",
-                    "text": "I'm a cool dude!"
+                    "cvparagraphs": [
+                        {
+                            "cvparagraph": "I'm a cool dude!"
+                        }
+                    ]
                 },
                 {
                     "title": "Why Google",
-                    "text": "Google's a cool dude!"
+                    "cvparagraphs": [
+                        {
+                            "cvparagraph": "Google's a cool dude!"
+                        }
+                    ]
                 },
                 {
                     "title": "Why Me",
-                    "text": "Did I mention that I'm a cool dude?"
+                    "cvparagraphs": [
+                        {
+                            "cvparagraph": "Did I mention that I'm a cool dude?"
+                        }
+                    ]
                 }
             ],
             "enclosures": [

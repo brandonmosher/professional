@@ -19,11 +19,6 @@
 \newcommand*{\lettertextstyle}{\fontsize{10pt}{1.4em}\bodyfontlight\upshape\color{graytext}}
 \newcommand*{\letternamestyle}[1]{{\fontsize{10pt}{1em}\bodyfont\bfseries\color{darktext} #1}}
 
-%-------------------------------------------------------------------------------
-%                header
-%-------------------------------------------------------------------------------
-
-\newenvironment{header}{}{\par}
 
 %-------------------------------------------------------------------------------
 %                letterstart
@@ -87,6 +82,12 @@
   \par\nobreak\addvspace{0.4ex}
   #2\par
 }
+
+% usage \cvparagraph{<text>}
+\newenvironment{clparagraphs}{}{}
+
+% usage \cvparagraph{<text>}
+\newenvironment{clparagraph}{}{\par}
 
 %-------------------------------------------------------------------------------
 %                letterend
