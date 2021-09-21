@@ -53,6 +53,9 @@
                         \end{cvitems}
                     }
             \end{cventries}
+            \begin{titledItems}
+                \emph{\titledItem{\p{title}:~}{\p{item}}}
+            \end{titledItems}
         \end{experience}
 
         \begin{education}
@@ -98,7 +101,7 @@
         \begin{skillsets}
             \cvsection{\p{title}}
             \begin{cventries}
-                \cvskillset
+                \titledItem
                     {\p{title}:}
                     {
                         \begin{skills}
@@ -112,9 +115,26 @@
         \begin{hobbies}
             \cvsection{\p{title}}
             \begin{cventries}
-                \hobby{\p{title}:~}{\p{cvparagraph}}\\
+                \titledItem{\p{title}:~}{\p{cvparagraph}}
             \end{cventries}
         \end{hobbies}
+
+        \begin{clearances}
+            \cvsection{\p{title}}
+            \begin{clearances}
+                \clearance
+                    {\p{clearanceStatus}}
+                    {\p{clearanceLevel}}
+                    {\p{clearanceDate}}
+                    {\p{investigationStatus}}
+                    {\p{investigationType}}
+                    {\p{investigationDate}}
+                    {\p{polygraphStatus}}
+                    {\p{polygraphType}}
+                    {\p{polygraphDate}}
+            \end{clearances}
+        \end{clearances}
+
     \end{cv}
 
     \makefooter

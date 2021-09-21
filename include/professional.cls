@@ -98,8 +98,8 @@
 
 % Awesome section color
 \colorlet{awesome}{awesome-red}
-\def\@sectioncolor#1#2#3{%
-  \ifbool{sectionColorHighlight}{{\color{awesome}#1#2#3}}{#1#2#3}%
+\def\@sectioncolor#1{%
+  \ifbool{sectionColorHighlight}{{\color{awesome}#1}}{#1}%
 }
 
 %-------------------------------------------------------------------------------
@@ -141,6 +141,25 @@
 
 % Use to draw horizontal line with specific thickness
 \newcommand{\vhrulefill}[1]{\leavevmode\leaders\hrule\@height#1\hfill \kern\z@}
+
+%-------------------------------------------------------------------------------
+%                titledItem
+%-------------------------------------------------------------------------------
+
+% titledItem styles
+\newcommand*{\labelstyle}[1]{{\fontsize{10pt}{1em}\bodyfont\bfseries\color{darktext}#1}}
+\newcommand*{\itemstyle}[1]{{\fontsize{9pt}{1em}\bodyfontlight\color{text}#1}}
+
+\newenvironment{titledItems}{}{}
+
+% usage \titledItem[<label><item>]
+\newcommand*{\titledItem}[2]{%
+    \labelstyle{#1}\itemstyle{#2}
+}
+
+%-------------------------------------------------------------------------------
+%                separatedItem
+%-------------------------------------------------------------------------------
 
 \newcommand*{\separatedItem}[1]{%
     \ifbool{isFirstSeparatedItem}{\setbool{isFirstSeparatedItem}{false}}{\separator}#1%
@@ -220,9 +239,9 @@
 \newcommand{\headerAfterQuoteSkip}{5mm}
 
 % Header styles
-\newcommand*{\headerfirstnamestyle}[1]{{\fontsize{32pt}{1em}\headerfontlight\color{graytext} #1}}
-\newcommand*{\headerlastnamestyle}[1]{{\fontsize{32pt}{1em}\headerfont\bfseries\color{text} #1}}
-\newcommand*{\headerpositionstyle}[1]{{\fontsize{7.6pt}{1em}\bodyfont\scshape\color{awesome} #1}}
+\newcommand*{\headerfirstnamestyle}[1]{{\fontsize{20pt}{1em}\headerfontlight\color{graytext} #1}}
+\newcommand*{\headerlastnamestyle}[1]{{\fontsize{20pt}{1em}\headerfont\bfseries\color{text} #1}}
+\newcommand*{\headerpositionstyle}[1]{{\fontsize{8pt}{1em}\bodyfont\scshape\color{awesome} #1}}
 \newcommand*{\headeraddressstyle}[1]{{\fontsize{8pt}{1em}\headerfont\itshape\color{lighttext} #1}}
 \newcommand*{\headersocialstyle}[1]{{\fontsize{6.8pt}{1em}\headerfont\color{text} #1}}
 
@@ -247,7 +266,7 @@
     \ifdefequal{#1}{L}{\raggedright}{\ifdefequal{#1}{R}{\raggedleft}{\centering}}
     \headerfirstnamestyle{\@firstname}\headerlastnamestyle{{}\headerNameDelim\@lastname}%
     \\[\headerAfterNameSkip]%
-    \ifdefvoid{\@position}{}{\headerpositionstyle{\@position\\[\headerAfterPositionSkip]}}%
+    \ifdefvoid{\@position}{}{\headerpositionstyle{\@position,~~}}%\\[\headerAfterPositionSkip]
     \ifdefvoid{\@address}{}{\headeraddressstyle{\@address\\[\headerAfterAddressSkip]}}%
     \headersocialstyle{%
       \begin{headerSocialEntries}%

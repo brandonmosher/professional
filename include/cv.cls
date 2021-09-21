@@ -19,7 +19,7 @@
 %-------------------------------------------------------------------------------
 
 % cvsection styles
-\newcommand*{\cvsectionstyle}[1]{{\fontsize{15pt}{1em}\bodyfont\bfseries\color{text}\@sectioncolor #1}}
+\newcommand*{\cvsectionstyle}[1]{{\fontsize{14pt}{1em}\bodyfont\bfseries\color{text}\@sectioncolor #1}}
 
 % usage: \cvsection{<section-title>}
 \newcommand{\cvsection}[1]{%
@@ -121,20 +121,6 @@
 \newenvironment{skills}{\begin{separatedItems}{, }}{\end{separatedItems}}
 \newcommand*{\skill}[1]{\separatedItem{#1}}
 
-% cvskillset styles
-\newcommand*{\skillsettitlestyle}[1]{{\fontsize{10pt}{1em}\bodyfont\bfseries\color{darktext}#1}}
-\newcommand*{\skillsetstyle}[1]{{\fontsize{9pt}{1em}\bodyfontlight\color{text}#1}}
-
-% usage \cvskillset[<category><skillset>]
-\newcommand*{\hobby}[2]{%
-    \skillsettitlestyle{#1}\skillsetstyle{#2}
-}
-
-% usage \cvskillset[<category><skillset>]
-\newcommand*{\cvskillset}[2]{%
-    \skillsettitlestyle{#1}\skillsetstyle{#2}
-}
-
 %-------------------------------------------------------------------------------
 %                cvitems
 %-------------------------------------------------------------------------------
@@ -145,10 +131,23 @@
 
 % Environments for sections
 \newenvironment{cv}{}{\par}
+
 \newenvironment{summary}{}{\par}
+
 \newenvironment{experience}{}{\par}
+
 \newenvironment{projects}{}{\par}
+
 \newenvironment{education}{}{\par}
 \newenvironment{degrees}{\begin{separatedItems}{\headerSocialSep}}{\end{separatedItems}}
 \newcommand*{\degree}[1]{\separatedItem{#1}}
 \newenvironment{hobbies}{}{\par}
+
+\newenvironment{clearances}{\begin{cvitems}}{\end{cvitems}}
+
+% usage
+%\clearance
+%{clearanceStatus}{clearanceLevel}{clearanceDate}
+%{investigationStatus}{investigationType}{investigationDate}
+%{polygraphStatus}{polygraphType}{polygraphDate}
+\newcommand*{\clearance}[9]{\cvitem{\itemstyle{#1 #2 (#3);~~#4 #5 (#6);~~#7 #8 polygraph (#9).}}}
