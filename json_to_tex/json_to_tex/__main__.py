@@ -2,7 +2,9 @@
 
 import json_to_tex as jtt
 import json
+import os
 import sys
+import re
 from pathlib import Path
 
 import argparse
@@ -85,6 +87,17 @@ def main():
         jtt.merge_obj(merged_json, jtt.load_json(json_filepath), merge_comp=merge_comp, sort_key=merge_sort_key)
     
     def filter_func(target_tags, include):
+        def re_tag_match(patterns, tags):
+            if not isinstance(patterns, (list, set, dict)):
+                patterns = {patterns}
+            if not isinstance(tags, (list, set, dict)):
+                tags = {tags}
+            for pattern in patterns:
+                for tag in tags:
+                    if(re.search(pattern, tag)):
+                        return True
+            return False
+        
         def f(value):
             if not isinstance(value, dict):
                 return True
@@ -101,8 +114,8 @@ def main():
                         property_only_tags.add(tag)
                 
             for property_only_tag in property_only_tags:
-                for property in tags[property_only_tag]:
-                    if (property_only_tag in target_tags) and (property in value):
+                for property in tags[property_only_tag]:                    
+                    if re_tag_match(target_tags, property_only_tag) and (property in value):
                         if include:
                             # Not sure that there is a symmetrical case for include tags
                             pass
@@ -112,13 +125,13 @@ def main():
             if len(tags) == len(property_only_tags):
                 return True
             
-            if any([(tag in tags) and (tag not in property_only_tags) for tag in target_tags]):
+            if re_tag_match(target_tags, tags) and not re_tag_match(target_tags, property_only_tags):
                 return include
             
             return not include
         
         return f
-
+    print(args.include_tags)
     if(args.include_tags):
         jtt.filter_obj(merged_json, filter_func(args.include_tags, True))
 
