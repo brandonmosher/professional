@@ -17,6 +17,7 @@
 
 % If you would like to change the social information separator from a pipe (|) to something else
 \renewcommand{\headerSocialSep}{\quad\textbar\quad}
+\renewcommand{\degreeSep}{ | }
 
 \begin{document}
     \name{\p{firstName}}{\p{lastName}}
@@ -33,73 +34,69 @@
     \medskip
     \begin{cv}
         \begin{summary}
-            \cvsection{\p{title}}
+            \cvsection{\p{title}}%
             \begin{cvparagraph}
-            \p{}
+            \p{}%
             \end{cvparagraph}
         \end{summary}
 
         \begin{experience}
-            \cvsection{\p{title}}
+            \cvsection{\p{title}}%
             \begin{cventries}
                 \cventry
-                    {\p{organization}}
-                    {\p{jobTitle}}
-                    {\p{location}}
                     {\p{startDate} - \p{endDate}}
+                    {\p{jobTitle}}
+                    {\p{organization}}
+                    {}
                     {
                         \begin{cvitems}
-                            \cvitem{\p{}}
+                            \cvitem{\p{}}%
                         \end{cvitems}
                     }
             \end{cventries}
             \begin{titledItems}
-                \emph{\titledItem{\p{title}:~}{\p{item}}}
+                \emph{\titledItem{\p{title}:~}{\p{item}}}%
             \end{titledItems}
         \end{experience}
 
         \begin{education}
-            \cvsection{\p{title}}
+            \cvsection{\p{title}}%
             \begin{cventries}
                 \cventry
+                {\p{startDate} - \p{endDate}}
                 {
                     \begin{degrees}
-                        \degree{\p{}}
+                        \degree{\p{}}%
                     \end{degrees}
                 }
                 {\p{institution}}
                 {\p{location}}
-                {\p{endDate}}
                 {
                     \begin{cvitems}
-                        \cvitem{\p{}}
+                        \cvitem{\p{}}%
                     \end{cvitems}
                 }
             \end{cventries}
         \end{education}
         
         \begin{projects}
-            \cvsection{\p{title}}
+            \cvsection{\p{title}}%
             \begin{cventries}
-                \cventrycompact
-                    {
-                        \ifstrempty{\p{url}}
-                        {\p{title}}
-                        {\color{hrefblue}\href{\p{url}}{\p{title}}}
-                    }
+                \cventry
+                    {\cvhref{\p{title}}{\p{url}}}
                     {}
-                    {\p{organization}}
-                    {\p{date}}
+                    {}
+                    {}
                     {
                         \begin{cvparagraph}
-                            \p{description}
+                            \p{description}%
                         \end{cvparagraph}
                     }
             \end{cventries}
         \end{projects}
         
         \begin{skillsets}
-            \cvsection{\p{title}}
+            \cvsection{\p{title}}%
             \begin{cventries}
                 \titledItem
                     {\p{title}:}
@@ -115,24 +112,22 @@
         \begin{hobbies}
             \cvsection{\p{title}}
             \begin{cventries}
-                \titledItem{\p{title}:~}{\p{cvparagraph}}
+                \titledItem{\p{title}:~}{\p{cvparagraph}}%
             \end{cventries}
         \end{hobbies}
 
         \begin{clearances}
-            \cvsection{\p{title}}
-            \begin{clearances}
-                \clearance
-                    {\p{clearanceStatus}}
-                    {\p{clearanceLevel}}
-                    {\p{clearanceDate}}
-                    {\p{investigationStatus}}
-                    {\p{investigationType}}
-                    {\p{investigationDate}}
-                    {\p{polygraphStatus}}
-                    {\p{polygraphType}}
-                    {\p{polygraphDate}}
-            \end{clearances}
+            \cvsection{\p{title}}%
+            \clearanceStatus{\p{clearanceStatus}}
+            \clearanceLevel{\p{clearanceLevel}}
+            \clearanceDate{\p{clearanceDate}}
+            \investigationStatus{\p{investigationStatus}}
+            \investigationType{\p{investigationType}}
+            \investigationDate{\p{investigationDate}}
+            \polygraphStatus{\p{polygraphStatus}}
+            \polygraphType{\p{polygraphType}}
+            \polygraphDate{\p{polygraphDate}}
+            \clearance
         \end{clearances}
 
     \end{cv}

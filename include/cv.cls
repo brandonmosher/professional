@@ -12,19 +12,15 @@
 
 % section spacing
 \newcommand{\cvSectionTopSkip}{1mm}
-\newcommand{\cvSectionContentTopSkip}{0mm}
 
 %-------------------------------------------------------------------------------
 %                cvsection
 %-------------------------------------------------------------------------------
 
-% cvsection styles
-\newcommand*{\cvsectionstyle}[1]{{\fontsize{14pt}{1em}\bodyfont\bfseries\color{text}\@sectioncolor #1}}
-
 % usage: \cvsection{<section-title>}
 \newcommand{\cvsection}[1]{%
   \vspace{\cvSectionTopSkip}
-  \cvsectionstyle{#1}
+  \headsection{#1}
   \phantomsection
   \color{gray}\vhrulefill{0.9pt}
   \\
@@ -34,13 +30,10 @@
 %                cvsubsection
 %-------------------------------------------------------------------------------
 
-% cvsubsection styles
-\newcommand*{\cvsubsectionstyle}[1]{{\fontsize{12pt}{1em}\bodyfont\scshape\textcolor{text}{#1}}}
-
 % usage: \cvsubsection{<subsection-title>}
 \newcommand{\cvsubsection}[1]{%
-  \vspace{\cvSectionContentTopSkip}
-  \cvsubsectionstyle{#1}
+  \vspace{\cvSectionTopSkip}
+  \headb{\color{text} #1}
   \phantomsection
   \\
 }
@@ -49,68 +42,34 @@
 %                cvparagraph
 %-------------------------------------------------------------------------------
 
-% cvparagraph styles
-\newcommand*{\cvparagraphstyle}{\fontsize{9pt}{1em}\bodyfontlight\upshape\color{text}}
-
 % usage \cvparagraph{<text>}
-\newenvironment{cvparagraph}{%
-  \vspace{\cvSectionContentTopSkip}
-  \cvparagraphstyle
-}{%
-  \par
-}
+\newenvironment{cvparagraph}{\cvparagraphstyle}{\par}
 
 %-------------------------------------------------------------------------------
 %                cventries
 %-------------------------------------------------------------------------------
 
 % usage \begin{cventries} ... \end{cventreis}
-\newenvironment{cventries}{%
-  \vspace{\cvSectionContentTopSkip}
-}{%
-  \par
-}
+\newenvironment{cventries}{}{\par}
 
 %-------------------------------------------------------------------------------
 %                cventry
 %-------------------------------------------------------------------------------
 
-% cventry style
-\newcommand*{\cventrytitlestyle}[1]{{\fontsize{10pt}{1em}\bodyfont\bfseries\color{darktext} #1}}
-\newcommand*{\cventrypositionstyle}[1]{{\fontsize{8pt}{1em}\bodyfont\scshape\color{graytext} #1}}
-\newcommand*{\cventrydatestyle}[1]{{\fontsize{8pt}{1em}\bodyfontlight\slshape\color{graytext} #1}}
-\newcommand*{\cventrylocationstyle}[1]{{\fontsize{9pt}{1em}\bodyfontlight\slshape\color{awesome} #1}}
-\newcommand*{\cventrydescriptionstyle}[1]{{\fontsize{9pt}{1em}\bodyfontlight\upshape\color{text} #1}}
+% usage \cventry{<date>}{<position>}{<organization>}{<location>}{<description>}
 
-% usage \cventrycompact{<organization>}{<position>}{<location>}{<date>}{<description>}
-\newcommand*{\cventrycompact}[5]{%
-  \cventrytitlestyle{#1} \cventrypositionstyle{#2}\hfill\cventrylocationstyle{#3} \cventrydatestyle{#4}\\
-  \cventrydescriptionstyle{#5}
-}
-
-% usage \cventry{<organization>}{<position>}{<location>}{<date>}{<description>}
 \newcommand*{\cventry}[5]{%
-  \cventrytitlestyle{#1}\hfill\cventrylocationstyle{#3}\\
-  \ifstrempty{#2}{}{
-  \cventrypositionstyle{#2}\hfill\cventrydatestyle{#4}\\
-  }
-  \cventrydescriptionstyle{#5}
-}
-
-%-------------------------------------------------------------------------------
-%                cvhonor
-%-------------------------------------------------------------------------------
-
-% cvhonor styles
-\newcommand*{\honortitlestyle}[1]{{\fontsize{9pt}{1em}\bodyfont\color{graytext} #1}}
-\newcommand*{\honorpositionstyle}[1]{{\fontsize{9pt}{1em}\bodyfont\bfseries\color{darktext} #1}}
-\newcommand*{\honordatestyle}[1]{{\fontsize{9pt}{1em}\bodyfont\color{graytext} #1}}
-\newcommand*{\honorlocationstyle}[1]{{\fontsize{9pt}{1em}\bodyfontlight\slshape\color{awesome} #1}}
-
-% usage \cvhonor{<position>}{<title>}{<location>}{<date>}
-\newcommand*{\cvhonor}[4]{%
-  \makebox[1.5cm]{\honordatestyle{#4}}\honorpositionstyle{#1}, \honortitlestyle{#2} \hfill \honorlocationstyle{#3}
-}
+  \ifstrempty{#1}{}{\headd{#1}\\}%
+  \ifstrempty{#2#3#4}{}{%
+    \ifstrempty{#2}{}{\headc{\cvbold{#2\ifstrempty{#3#4}{}{, }}}}%
+    \ifstrempty{#3}{}{\headd{\color{graytext}#3\ifstrempty{#4}{}{, }}}%
+    \ifstrempty{#4}{}{\headd{\color{graytext}#4}}%
+    \\
+  }%
+  \begin{cvparagraph}%
+    #5
+  \end{cvparagraph}%
+}%
 
 %-------------------------------------------------------------------------------
 %                cvskillset
@@ -139,15 +98,31 @@
 \newenvironment{projects}{}{\par}
 
 \newenvironment{education}{}{\par}
-\newenvironment{degrees}{\begin{separatedItems}{\headerSocialSep}}{\end{separatedItems}}
+
+\newcommand{\degreeSep}{ \textbar}
+
+\newenvironment{degrees}{\begin{separatedItems}{\degreeSep}}{\end{separatedItems}}
+
 \newcommand*{\degree}[1]{\separatedItem{#1}}
+
 \newenvironment{hobbies}{}{\par}
 
 \newenvironment{clearances}{\begin{cvitems}}{\end{cvitems}}
 
+\newcommand*{\clearanceStatus}[1]{\def\@clearanceStatus{#1}}
+\newcommand*{\clearanceLevel}[1]{\def\@clearanceLevel{#1}}
+\newcommand*{\clearanceDate}[1]{\def\@clearanceDate{#1}}
+\newcommand*{\investigationStatus}[1]{\def\@investigationStatus{#1}}
+\newcommand*{\investigationType}[1]{\def\@investigationType{#1}}
+\newcommand*{\investigationDate}[1]{\def\@investigationDate{#1}}
+\newcommand*{\polygraphStatus}[1]{\def\@polygraphStatus{#1}}
+\newcommand*{\polygraphType}[1]{\def\@polygraphType{#1}}
+\newcommand*{\polygraphDate}[1]{\def\@polygraphDate{#1}}
+
 % usage
 %\clearance
-%{clearanceStatus}{clearanceLevel}{clearanceDate}
-%{investigationStatus}{investigationType}{investigationDate}
-%{polygraphStatus}{polygraphType}{polygraphDate}
-\newcommand*{\clearance}[9]{\cvitem{\itemstyle{#1 #2 (#3);~~#4 #5 (#6);~~#7 #8 polygraph (#9).}}}
+\newcommand*{\clearance}{\cvitem{\itemstyle{%
+    \@clearanceStatus~\@clearanceLevel~(\@clearanceDate);~
+    \@investigationStatus~\@investigationType~(\@investigationDate);~
+    \@polygraphStatus~\@polygraphType~polygraph~(\@polygraphDate).
+}}}

@@ -12,15 +12,6 @@
 \LoadClass{professional}
 
 %-------------------------------------------------------------------------------
-%                common letterstyles
-%-------------------------------------------------------------------------------
-
-\newcommand*{\letterdatestyle}[1]{{\fontsize{9pt}{1em}\bodyfontlight\slshape\color{graytext} #1}}
-\newcommand*{\lettertextstyle}{\fontsize{10pt}{1.4em}\bodyfontlight\upshape\color{graytext}}
-\newcommand*{\letternamestyle}[1]{{\fontsize{10pt}{1em}\bodyfont\bfseries\color{darktext} #1}}
-
-
-%-------------------------------------------------------------------------------
 %                letterstart
 %-------------------------------------------------------------------------------
 
@@ -30,22 +21,25 @@
 \newcommand*{\lettertoname}[1]{\def\@lettertoname{#1}}
 
 % lettertonamestyle
-\newcommand*{\lettertonamestyle}[1]{{\fontsize{11pt}{1em}\bodyfont\bfseries\color{darktext} #1}}
+\newcommand*{\lettertonamestyle}[1]{\headc{\cvbold{#1}}}
 
 % usage: \lettertoaddress{<recipient address>}
 \newcommand*{\lettertoaddress}[1]{\def\@lettertoaddress{#1}}
 
 % lettertoaddress style
-\newcommand*{\lettertoaddressstyle}[1]{{\fontsize{9pt}{1em}\bodyfont\scshape\color{graytext} #1}}
+\newcommand*{\lettertoaddressstyle}[1]{\headd{\color{graytext}#1}}
 
 % usage: \lettertitle{<title>}
 \newcommand*{\lettertitle}[1]{\def\@lettertitle{#1}}
 
 % lettertitle style
-\newcommand*{\lettertitlestyle}[1]{{\fontsize{10pt}{1em}\bodyfontlight\bfseries\color{darktext} \underline{#1}}}
+\newcommand*{\lettertitlestyle}[1]{\headclight{\cvbold{\underline{#1}}}}
 
 % usage: \letterdate{<date>}
 \newcommand*{\letterdate}[1]{\def\@letterdate{#1}}
+
+% letterdate style
+\newcommand*{\letterdatestyle}[1]{\headclight{\slshape\color{graytext}#1}}
 
 % usage: \letteropeningphrase{<phrase>}
 \newcommand*{\letteropeningphrase}[1]{\def\@letteropeningphrase{#1}}
@@ -71,7 +65,7 @@
 \newenvironment{body}{\lettertextstyle}{}
 
 % lettersection style
-\newcommand*{\lettersectionstyle}[1]{{\fontsize{14pt}{1em}\bodyfont\bfseries\color{text}\@sectioncolor #1}}
+\newcommand*{\lettersectionstyle}[1]{\headsection{#1}}
 
 % usage: \lettersection{<section-title>}
 \newcommand{\lettersection}[2]{%
@@ -98,6 +92,8 @@
 % usage: \letterclosingphrase{<phrase>}
 \newcommand*{\letterclosingphrase}[1]{\def\@letterclosingphrase{#1}}
 
+\newcommand*{\letternamestyle}[1]{\headc{\cvbold{#1}}}
+
 % usage: \makeletterend
 \newcommand*{\makeletterend}{%
   \vspace{3.4mm}
@@ -111,7 +107,7 @@
 
 \newenvironment{enclosures}{}{\par}
 
-\newcommand*{\letterenclosurestyle}[1]{{\fontsize{10pt}{1em}\bodyfontlight\slshape\color{lighttext} #1}}
+\newcommand*{\letterenclosurestyle}[1]{\headclight{\slshape\color{lighttext}#1}}
 
 % usage: \letterenclosure[<enclosure name>]{<enclosure>}
 \newcommand*{\letterenclosure}[2]{\letterenclosurestyle{#1: #2}\\}

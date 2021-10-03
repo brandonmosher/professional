@@ -38,13 +38,6 @@
 \RequirePackage{etoolbox}
 
 %-------------------------------------------------------------------------------
-%                directory locations
-%-------------------------------------------------------------------------------
-% Configure a directory location for fonts(default: 'fonts/')
-\newcommand*{\fontdir}[1][fonts/]{\def\@fontdir{#1}}
-\fontdir
-
-%-------------------------------------------------------------------------------
 %                layout
 %-------------------------------------------------------------------------------
 
@@ -76,6 +69,7 @@
 \definecolor{red}{HTML}{FB4485}
 \definecolor{blue}{HTML}{6CE0F1}
 \definecolor{hrefblue}{HTML}{0645AD}
+
 % Text colors
 \definecolor{darktext}{HTML}{414141}
 \colorlet{text}{darkgray}
@@ -103,8 +97,12 @@
 }
 
 %-------------------------------------------------------------------------------
-%                Configuration for fonts
+%                fonts
 %-------------------------------------------------------------------------------
+% Configure a directory location for fonts(default: 'fonts/')
+\newcommand*{\fontdir}[1][fonts/]{\def\@fontdir{#1}}
+\fontdir
+
 % Needed to manage fonts
 \RequirePackage[quiet]{fontspec}
 
@@ -114,6 +112,7 @@
 
 % Set the FontAwesome font to be up-to-date.
 \setfontfamily\FA[Path=\@fontdir]{FontAwesome}
+
 % Set font for header (default is Roboto)
 \newfontfamily\headerfont[
   Path=\@fontdir,
@@ -136,25 +135,46 @@
 \newcommand*{\bodyfontlight}{\sourcesansprolight}
 
 %-------------------------------------------------------------------------------
+%                headings
+%-------------------------------------------------------------------------------
+% \bfseries\color{text}\@sectioncolor
+\newcommand*{\headsection}[1]{\heada{\bfseries\color{text}\@sectioncolor#1}}
+
+\newcommand*{\headtitle}[1]{{\fontsize{20pt}{1em} #1}}
+\newcommand*{\heada}[1]{{\fontsize{14pt}{1em}\bodyfont#1}}
+\newcommand*{\headb}[1]{{\fontsize{12pt}{1em}\bodyfont#1}}
+\newcommand*{\headc}[1]{{\fontsize{10pt}{1em}\bodyfont#1}}
+\newcommand*{\headclight}[1]{{\fontsize{10pt}{1em}\bodyfontlight#1}}
+\newcommand*{\headd}[1]{{\fontsize{9pt}{1em}\bodyfont#1}}
+\newcommand*{\heade}[1]{{\fontsize{8pt}{1em}\bodyfont#1}}
+\newcommand*{\headf}[1]{{\fontsize{7pt}{1em}\bodyfontlight#1}}
+\newcommand*{\cvparagraphstyle}{\fontsize{9pt}{1.15em}\bodyfontlight\color{text}}
+\newcommand*{\lettertextstyle}{\fontsize{10pt}{1.4em}\bodyfontlight\color{graytext}}
+
+%-------------------------------------------------------------------------------
 %                utilities
 %-------------------------------------------------------------------------------
 
 % Use to draw horizontal line with specific thickness
 \newcommand{\vhrulefill}[1]{\leavevmode\leaders\hrule\@height#1\hfill \kern\z@}
 
+\newcommand*{\cvbold}[1]{\bfseries\color{darktext}#1}
+
+\newcommand*{\cvhref}[2]{\ifstrempty{#2}{#1}{\color{hrefblue}\href{#2}{#1}}}
+
 %-------------------------------------------------------------------------------
 %                titledItem
 %-------------------------------------------------------------------------------
 
 % titledItem styles
-\newcommand*{\labelstyle}[1]{{\fontsize{10pt}{1em}\bodyfont\bfseries\color{darktext}#1}}
-\newcommand*{\itemstyle}[1]{{\fontsize{9pt}{1em}\bodyfontlight\color{text}#1}}
+\newcommand*{\titledItemTitleStyle}[1]{{\headd{#1}}}
+\newcommand*{\titledItemItemStyle}[1]{{\cvparagraphstyle#1}}
 
 \newenvironment{titledItems}{}{}
 
 % usage \titledItem[<label><item>]
 \newcommand*{\titledItem}[2]{%
-    \labelstyle{#1}\itemstyle{#2}
+    \titledItemTitleStyle{#1}\titledItemItemStyle{#2}
 }
 
 %-------------------------------------------------------------------------------
@@ -174,38 +194,15 @@
 %-------------------------------------------------------------------------------
 %                personal information
 %-------------------------------------------------------------------------------
-% usage: \name{<firstname>}{<lastname>}
 \newcommand*{\name}[2]{\def\@firstname{#1}\def\@lastname{#2}}
-
-% usage: \firstname{<firstname>}
 \newcommand*{\firstname}[1]{\def\@firstname{#1}}
-
-% usage: \lastname{<lastname>}
 \newcommand*{\lastname}[1]{\def\@lastname{#1}}
-
-% usage: \familyname{<familyname>}
-\newcommand*{\familyname}[1]{\def\@lastname{#1}}
-\def\@familyname{\@lastname}
-
-% usage: \address{<address>}
 \newcommand*{\address}[1]{\def\@address{#1}}
-
-% usage: \position{<position>}
 \newcommand*{\position}[1]{\def\@position{#1}}
-
-% usage: \mobile{<mobile number>}
 \newcommand*{\mobile}[1]{\def\@mobile{#1}}
-
-% usage: \email{<email address>}
 \newcommand*{\email}[1]{\def\@email{#1}}
-
-% usage: \homepage{<url>}
 \newcommand*{\homepage}[1]{\def\@homepage{#1}}
-
-% usage: \github{<github-nick>}
 \newcommand*{\github}[1]{\def\@github{#1}}
-
-% usage: \linkedin{<linked-in-nick>}
 \newcommand*{\linkedin}[1]{\def\@linkedin{#1}}
 
 %-------------------------------------------------------------------------------
@@ -228,22 +225,15 @@
 % remove head rule
 \renewcommand{\headrulewidth}{0pt}
 
-% Hader Spacing
-\newcommand{\headerNameDelim}{\space}
-\newcommand{\headerAfterNameSkip}{.4mm}
-\newcommand{\headerAfterPositionSkip}{.4mm}
-\newcommand{\headerAfterAddressSkip}{-.5mm}
-\newcommand{\headerIconSep}{\space}
-\newcommand{\headerSocialSep}{\quad\textbar\quad}
-\newcommand{\headerAfterSocialSkip}{6mm}
-\newcommand{\headerAfterQuoteSkip}{5mm}
+% header styles
+\newcommand*{\headerfirstnamestyle}[1]{\headtitle{\headerfontlight\color{graytext}#1}}
+\newcommand*{\headerlastnamestyle}[1]{\headtitle{\headerfont\bfseries\color{text}#1}}
+\newcommand*{\headerpositionstyle}[1]{\headd{\color{awesome}#1}}
+\newcommand*{\headeraddressstyle}[1]{\headd{\headerfont\itshape\color{lighttext}#1}}
+\newcommand*{\headersocialstyle}[1]{\headf{\headerfont\color{text}#1}}
 
-% Header styles
-\newcommand*{\headerfirstnamestyle}[1]{{\fontsize{20pt}{1em}\headerfontlight\color{graytext} #1}}
-\newcommand*{\headerlastnamestyle}[1]{{\fontsize{20pt}{1em}\headerfont\bfseries\color{text} #1}}
-\newcommand*{\headerpositionstyle}[1]{{\fontsize{8pt}{1em}\bodyfont\scshape\color{awesome} #1}}
-\newcommand*{\headeraddressstyle}[1]{{\fontsize{8pt}{1em}\headerfont\itshape\color{lighttext} #1}}
-\newcommand*{\headersocialstyle}[1]{{\fontsize{6.8pt}{1em}\headerfont\color{text} #1}}
+% header social entries
+\newcommand{\headerSocialSep}{\quad\textbar\quad}
 
 \newenvironment{headerSocialEntries}{%
     \begin{separatedItems}{\headerSocialSep}%
@@ -251,23 +241,23 @@
     \end{separatedItems}%
 }%
 
-% usage: \makeheader
+% usage: \headerSocialEntry{text}{icon}{url}
 \newcommand*{\headerSocialEntry}[3]{%
     \ifdefvoid{#1}{}{%
         \ifblank{#1}{}%
         {%
-            \separatedItem{\href{#3#1}{#2\headerIconSep#1}}%
+            \separatedItem{\href{#3#1}{#2 #1}}%
         }%
     }%
 }
 
+% usage: \makeheader
 \newcommand*{\makeheader}[1][C]{%
   \begin{minipage}[c]{\textwidth}
     \ifdefequal{#1}{L}{\raggedright}{\ifdefequal{#1}{R}{\raggedleft}{\centering}}
-    \headerfirstnamestyle{\@firstname}\headerlastnamestyle{{}\headerNameDelim\@lastname}%
-    \\[\headerAfterNameSkip]%
-    \ifdefvoid{\@position}{}{\headerpositionstyle{\@position,~~}}%\\[\headerAfterPositionSkip]
-    \ifdefvoid{\@address}{}{\headeraddressstyle{\@address\\[\headerAfterAddressSkip]}}%
+    \headerfirstnamestyle{\@firstname} \headerlastnamestyle{\@lastname}\\%
+    \ifdefvoid{\@position}{}{\headerpositionstyle{\@position}\\}%
+    \ifdefvoid{\@address}{}{\headeraddressstyle{\@address\\}}%
     \headersocialstyle{%
       \begin{headerSocialEntries}%
           \headerSocialEntry{\@mobile}{\faMobile}{}%
@@ -276,12 +266,12 @@
           \headerSocialEntry{\@github}{\faGithubSquare}{https://github.com/}%
           \headerSocialEntry{\@linkedin}{\faLinkedinSquare}{https://www.linkedin.com/in/}%
       \end{headerSocialEntries}%
-    } \\[\headerAfterSocialSkip]%
+    }\\%
   \end{minipage}%
 }
 
 % footer styles
-\newcommand*{\footerstyle}[1]{{\fontsize{8pt}{1em}\footerfont\scshape\color{lighttext} #1}}
+\newcommand*{\footerstyle}[1]{{\fontsize{8pt}{1em}\footerfont\color{lighttext}#1}}
 
 % usage: \makefooter{<left>}{<center>}{<right>}
 \newcommand*{\makefooter}[3]{%
